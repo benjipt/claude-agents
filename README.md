@@ -18,7 +18,23 @@ git clone <repo-url> ~/.claude/agents/
 
 | Agent | Description | Notes |
 |-------|-------------|-------|
-| [atomic-commit-agent](./atomic-commit-agent.md) | Analyzes completed work and decomposes it into multiple atomic commits | Uses `[scope]` style—see customization below |
+| [atomic-commit-agent](./atomic-commit-agent.md) | Commits working code into atomic commits | Runs first, uses `[scope]` style—see customization below |
+| [code-reviewer](./code-reviewer.md) | Reviews committed code and suggests improvements | Runs after atomic-commit-agent |
+
+### Workflow
+
+These agents work together in a defined sequence:
+
+```
+complete feature → atomic-commit-agent → code-reviewer → (if improvements implemented) atomic-commit-agent → DONE
+```
+
+1. **Complete your feature** - Write and test your code
+2. **atomic-commit-agent** - Commits working code with clean atomic history
+3. **code-reviewer** - Reviews the committed code, suggests improvements (one cycle only)
+4. **atomic-commit-agent** (optional) - If you implement review suggestions, commit them
+
+The workflow enforces one review cycle per feature to prevent infinite loops.
 
 ## Usage
 
