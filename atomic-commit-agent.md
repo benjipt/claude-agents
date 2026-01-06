@@ -150,14 +150,15 @@ type[scope]: imperative summary (max 50 chars ideal, 72 max)
 
 **Important**: This agent runs as a sub-agent, separate from the model that generated the code. Do NOT assume your own model (the one running this agent) is the code author.
 
-- The invoking prompt will specify which model generated the code (the agent description instructs the parent to include this)
-- Extract the model name from the prompt and use it in the `Co-Authored-By` line
-- If no model is specified in the prompt, omit the `Co-Authored-By` line entirely rather than guessing
-- Never use the agent's own model name as the code author
+- The invoking prompt will specify which model assisted in generated the code (the agent description instructs the parent to include this).
+- Do not co-author commits, instead attribute the model in an `Assisted by` line at the end of the commit message block.
+- Extract the model name from the prompt and use it in the `Assisted by` line
+- If no model is specified in the prompt, omit the `Assisted by` line entirely rather than guessing
+- Never use the agent's own model name as the code assistant.
 
-Example `Co-Authored-By` formats:
-- `Co-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>`
-- `Co-Authored-By: Claude Sonnet 4 <noreply@anthropic.com>`
+Example `Assisted by` formats:
+- `Assisted by: Claude Opus 4.5`
+- `Assisted by: Claude Sonnet 4`
 
 ## Verification Checklist
 
