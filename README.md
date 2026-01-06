@@ -116,10 +116,10 @@ Agent instructions go here...
 
 ## Contributing
 
-Contributions are welcome! When submitting a new agent:
+Contributions are welcome! When modifying an agent:
 
 1. Follow the agent format above
-2. Include clear examples in the agent body
+2. Provide a use case for the suggested change
 3. Keep the tool list minimal—only include what's necessary
 4. Test the agent before submitting
 
