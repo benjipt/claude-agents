@@ -4,14 +4,26 @@ A collection of specialized agents for [Claude Code](https://claude.com/claude-c
 
 ## Installation
 
-Copy the desired agent `.md` files into your Claude Code agents directory:
+Use the one-liner below to fetch the agent `.md` files and place them alongside any
+existing agents:
 
 ```bash
-# macOS / Linux
-cp <agent-name>.md ~/.claude/agents/
+mkdir -p ~/.claude/agents && \
+  curl -L https://github.com/benjipt/claude-agents/archive/refs/heads/main.tar.gz | \
+  tar -xz --strip-components=1 -C ~/.claude/agents \
+    claude-agents-main/atomic-commit-agent.md \
+    claude-agents-main/code-reviewer.md
+```
 
-# Or clone the entire repo
-git clone <repo-url> ~/.claude/agents/
+This creates `~/.claude/agents` if needed, downloads the repo tarball, and extracts
+only the agent `.md` files into your Claude agents directory.
+
+If you prefer, you can copy the agent files manually into your Claude agents
+directory (`~/.claude/agents`):
+
+```
+atomic-commit-agent.md
+code-reviewer.md
 ```
 
 ## Available Agents
