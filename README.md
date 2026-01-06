@@ -110,3 +110,7 @@ Contributions are welcome! When submitting a new agent:
 2. Include clear examples in the agent body
 3. Keep the tool list minimal—only include what's necessary
 4. Test the agent before submitting
+
+## License
+
+MIT. See `LICENSE`.
